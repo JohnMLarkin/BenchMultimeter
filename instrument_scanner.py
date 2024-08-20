@@ -33,7 +33,7 @@ def instrument_scan(addr_to_skip = probably_not_instruments):
           instr.write_termination = dev_type['write_term']
           try:
             if prev_err:
-              instr.write('RST')
+              instr.write('*RST')
               sleep(2)
             id = instr.query(dev_type['id_query']).split(",")
           except pyvisa.errors.VisaIOError:
